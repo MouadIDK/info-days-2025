@@ -78,16 +78,14 @@ export default function FAQSection() {
   }
 
   return (
-    <section id="faq" className="section bg-primary-section relative overflow-hidden">
+    <section id="faq" className="section bg-primary-background relative overflow-hidden">
       {/* Enhanced background effects */}
-      <DynamicGradient variant="highlight" intensity="low" type="radial" className="z-0" />
-      <SectionParticles variant="highlight" density="low" speed="slow" glow={true} className="z-0" />
-      <FloatingShapes variant="highlight" density="low" speed="slow" className="z-0" />
-      <div className="bg-dots absolute inset-0 z-0"></div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-40 h-40 bg-primary-accent opacity-5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary-cta opacity-5 rounded-full -translate-x-1/3 translate-y-1/3"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-background to-primary-section/50 z-0"></div>
+      <DynamicGradient variant="default" intensity="medium" type="radial" className="z-0" />
+      <SectionParticles variant="default" density="high" speed="medium" glow={true} className="z-0" />
+      <div className="absolute inset-0 bg-noise z-0"></div>
+      <div className="absolute inset-0 bg-grid z-0"></div>
+      <FloatingShapes variant="default" density="low" speed="slow" className="z-0" />
 
       <div className="container mx-auto relative z-10">
         <h2 className="section-title slide-up">Frequently Asked Questions</h2>

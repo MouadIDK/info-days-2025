@@ -4,6 +4,8 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { Users, Calendar, Building, Award } from "lucide-react"
 import SectionParticles from "./section-particles"
+import DynamicGradient from "./dynamic-gradient"
+import FloatingShapes from "./floating-shapes"
 
 interface CounterProps {
   end: number
@@ -93,9 +95,14 @@ export default function NumbersSection() {
   ]
 
   return (
-    <section id="numbers" className="section bg-primary-section relative overflow-hidden">
-      {/* Add section particles */}
-      <SectionParticles variant="cta" density="high" speed="fast" />
+    <section id="numbers" className="section bg-primary-background relative overflow-hidden">
+      {/* Enhanced background effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-background to-primary-section/50 z-0"></div>
+      <DynamicGradient variant="default" intensity="medium" type="radial" className="z-0" />
+      <SectionParticles variant="default" density="high" speed="medium" glow={true} className="z-0" />
+      <div className="absolute inset-0 bg-noise z-0"></div>
+      <div className="absolute inset-0 bg-grid z-0"></div>
+      <FloatingShapes variant="default" density="low" speed="slow" className="z-0" />
 
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-32 h-32 bg-primary-accent opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>

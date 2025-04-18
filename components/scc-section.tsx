@@ -30,11 +30,14 @@ export default function SCCSection() {
   }, [])
 
   return (
-    <section id="scc" className="section bg-primary-background" ref={sectionRef}>
+    <section id="scc" className="section bg-primary-background relative overflow-hidden" ref={sectionRef}>
       {/* Enhanced background effects */}
-      <DynamicGradient variant="accent" intensity="medium" type="conic" className="z-0" />
-      <SectionParticles variant="accent" density="medium" speed="medium" glow={true} className="z-0" />
-      <FloatingShapes variant="accent" density="low" speed="slow" className="z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-background to-primary-section/50 z-0"></div>
+      <DynamicGradient variant="default" intensity="medium" type="radial" className="z-0" />
+      <SectionParticles variant="default" density="high" speed="medium" glow={true} className="z-0" />
+      <div className="absolute inset-0 bg-noise z-0"></div>
+      <div className="absolute inset-0 bg-grid z-0"></div>
+      <FloatingShapes variant="default" density="low" speed="slow" className="z-0" />
 
       <div className="container mx-auto relative z-10">
         <h2 className="section-title slide-up">What is SCC?</h2>

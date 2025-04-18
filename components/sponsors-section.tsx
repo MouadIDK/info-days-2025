@@ -2,6 +2,8 @@
 
 import { useRef, useEffect } from "react"
 import SectionParticles from "./section-particles"
+import DynamicGradient from "./dynamic-gradient"
+import FloatingShapes from "./floating-shapes"
 import Image from "next/image"
 
 interface Sponsor {
@@ -54,8 +56,13 @@ export default function SponsorsSection() {
 
   return (
     <section id="sponsors" className="section bg-primary-background relative overflow-hidden" ref={sectionRef}>
-      {/* Add section particles */}
-      <SectionParticles variant="default" density="low" speed="slow" />
+      {/* Enhanced background effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-background to-primary-section/50 z-0"></div>
+      <DynamicGradient variant="default" intensity="medium" type="radial" className="z-0" />
+      <SectionParticles variant="default" density="high" speed="medium" glow={true} className="z-0" />
+      <div className="absolute inset-0 bg-noise z-0"></div>
+      <div className="absolute inset-0 bg-grid z-0"></div>
+      <FloatingShapes variant="default" density="low" speed="slow" className="z-0" />
 
       {/* Decorative elements */}
       <div className="absolute top-1/4 left-0 w-48 h-48 bg-primary-highlight opacity-5 rounded-full -translate-x-1/2"></div>
@@ -72,7 +79,7 @@ export default function SponsorsSection() {
             {sponsors.map((sponsor, index) => (
               <div
                 key={index}
-                className="sponsor-item opacity-0 transform translate-y-4 transition-all duration-500 bg-primary-section p-6 rounded-xl hover:shadow-lg"
+                className="sponsor-item opacity-0 transform translate-y-4 transition-all duration-500 bg-primary-section p-6 rounded-xl hover:shadow-lg backdrop-blur-sm"
               >
                 <div className="relative h-40 w-full mb-4">
                   <Image
@@ -95,7 +102,7 @@ export default function SponsorsSection() {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="partner-item opacity-0 transform translate-y-4 transition-all duration-500 bg-primary-section p-6 rounded-xl hover:shadow-lg"
+                className="partner-item opacity-0 transform translate-y-4 transition-all duration-500 bg-primary-section p-6 rounded-xl hover:shadow-lg backdrop-blur-sm"
               >
                 <div className="relative h-40 w-full mb-4">
                   <Image

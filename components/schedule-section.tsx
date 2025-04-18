@@ -2,6 +2,8 @@
 
 import { useRef, useEffect } from "react"
 import SectionParticles from "./section-particles"
+import DynamicGradient from "./dynamic-gradient"
+import FloatingShapes from "./floating-shapes"
 
 interface ScheduleItem {
   time: string
@@ -20,7 +22,7 @@ export default function ScheduleSection() {
 
   const schedule: DaySchedule[] = [
     {
-      date: "Info Days 2025",
+      date: "Day 1 - April 19, 2025",
       items: [
         {
           time: "09:30",
@@ -41,6 +43,38 @@ export default function ScheduleSection() {
           time: "16:00",
           title: "Prepare for faang interviews",
           description: "With Ali ISSAOUI (Software development engineer at Amazon Web Services, USA)",
+        },
+      ],
+    },
+    {
+      date: "Day 2 - April 20, 2025",
+      items: [
+        {
+          time: "08:00",
+          title: "Participant Check-in",
+          description: "Arrival and registration at the welcome point",
+        },
+        {
+          time: "09:00",
+          title: "South Coding Cup Competition",
+          description: "Competitive programming contest at Code212",
+          highlight: true,
+        },
+        {
+          time: "13:00",
+          title: "Lunch Break",
+          description: "Lunch distribution for SCC participants",
+        },
+        {
+          time: "14:30",
+          title: "Soft Skills Conference",
+          description: "The importance of soft skills for developers",
+        },
+        {
+          time: "16:30",
+          title: "Closing Ceremony",
+          description: "Trophy and prize distribution to winners",
+          highlight: true,
         },
       ],
     },
@@ -81,8 +115,13 @@ export default function ScheduleSection() {
 
   return (
     <section id="schedule" className="section bg-primary-background relative overflow-hidden" ref={sectionRef}>
-      {/* Add section particles */}
-      <SectionParticles variant="light" density="medium" speed="medium" />
+      {/* Enhanced background effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-background to-primary-section/50 z-0"></div>
+      <DynamicGradient variant="default" intensity="medium" type="radial" className="z-0" />
+      <SectionParticles variant="default" density="high" speed="medium" glow={true} className="z-0" />
+      <div className="absolute inset-0 bg-noise z-0"></div>
+      <div className="absolute inset-0 bg-grid z-0"></div>
+      <FloatingShapes variant="default" density="low" speed="slow" className="z-0" />
 
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary-highlight opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
@@ -125,7 +164,7 @@ export default function ScheduleSection() {
                           className={`p-4 rounded-lg shadow-md group hover:shadow-lg transition-all duration-300 ${
                             item.highlight
                               ? "bg-primary-accent bg-opacity-20 border border-primary-accent hover:bg-opacity-30"
-                              : "bg-primary-section hover:bg-opacity-90"
+                              : "bg-primary-background bg-opacity-70 hover:bg-opacity-90 backdrop-blur-sm"
                           }`}
                         >
                           <div className="font-mono text-sm text-primary-highlight mb-2 group-hover:text-primary-cta transition-colors duration-300">

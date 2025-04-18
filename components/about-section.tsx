@@ -40,15 +40,14 @@ export default function AboutSection() {
   }, [])
 
   return (
-    <section id="about" className="section bg-primary-section relative overflow-hidden" ref={sectionRef}>
+    <section id="about" className="section bg-primary-background relative overflow-hidden" ref={sectionRef}>
       {/* Enhanced background effects */}
-      <DynamicGradient variant="light" intensity="low" type="linear" className="z-0" />
-      <SectionParticles variant="light" density="low" speed="slow" glow={true} className="z-0" />
-      <FloatingShapes variant="light" density="low" speed="slow" className="z-0" />
-
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-primary-cta opacity-5 rounded-full translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-highlight opacity-5 rounded-full -translate-x-1/4 translate-y-1/4"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-background to-primary-section/50 z-0"></div>
+      <DynamicGradient variant="default" intensity="medium" type="radial" className="z-0" />
+      <SectionParticles variant="default" density="high" speed="medium" glow={true} className="z-0" />
+      <div className="absolute inset-0 bg-noise z-0"></div>
+      <div className="absolute inset-0 bg-grid z-0"></div>
+      <FloatingShapes variant="default" density="low" speed="slow" className="z-0" />
 
       <div className="container mx-auto relative z-10">
         <h2 className="section-title slide-up">About the Event</h2>

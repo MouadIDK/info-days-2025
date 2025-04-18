@@ -48,20 +48,14 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative px-4 py-16 overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center relative px-4 py-16 overflow-hidden bg-primary-background"
     >
       {/* Enhanced background effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary-background to-primary-section z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-background to-primary-section/50 z-0"></div>
       <DynamicGradient variant="default" intensity="medium" type="radial" className="z-0" />
-      <SectionParticles
-        variant="default"
-        density="high"
-        speed="medium"
-        glow={true}
-        depth={true}
-        pulse={true}
-        className="z-0"
-      />
+      <SectionParticles variant="default" density="high" speed="medium" glow={true} className="z-0" />
+      <div className="absolute inset-0 bg-noise z-0"></div>
+      <div className="absolute inset-0 bg-grid z-0"></div>
       <FloatingShapes variant="default" density="low" speed="slow" className="z-0" />
 
       <div className="container mx-auto flex flex-col items-center justify-center z-10 text-center">

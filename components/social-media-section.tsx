@@ -3,6 +3,8 @@
 import { useRef, useEffect } from "react"
 import { Instagram, Linkedin, Youtube } from "lucide-react"
 import SectionParticles from "./section-particles"
+import DynamicGradient from "./dynamic-gradient"
+import FloatingShapes from "./floating-shapes"
 
 export default function SocialMediaSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -59,9 +61,14 @@ export default function SocialMediaSection() {
   }, [])
 
   return (
-    <section id="social" className="section bg-primary-section relative overflow-hidden" ref={sectionRef}>
-      {/* Add section particles */}
-      <SectionParticles variant="accent" density="medium" speed="medium" />
+    <section id="social" className="section bg-primary-background relative overflow-hidden" ref={sectionRef}>
+      {/* Enhanced background effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-background to-primary-section/50 z-0"></div>
+      <DynamicGradient variant="default" intensity="medium" type="radial" className="z-0" />
+      <SectionParticles variant="default" density="high" speed="medium" glow={true} className="z-0" />
+      <div className="absolute inset-0 bg-noise z-0"></div>
+      <div className="absolute inset-0 bg-grid z-0"></div>
+      <FloatingShapes variant="default" density="low" speed="slow" className="z-0" />
 
       {/* Decorative elements */}
       <div className="absolute top-0 left-1/2 w-72 h-72 bg-primary-accent opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
@@ -82,7 +89,7 @@ export default function SocialMediaSection() {
                 className="social-item opacity-0 transform translate-y-4 transition-all duration-500"
               >
                 <div
-                  className="bg-primary-background p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  className="bg-primary-section bg-opacity-70 backdrop-blur-sm p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                   style={{ borderTop: `4px solid ${social.color}` }}
                 >
                   <div className="flex flex-col items-center space-y-4">
